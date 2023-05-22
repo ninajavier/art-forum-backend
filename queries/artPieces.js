@@ -61,7 +61,7 @@ const updateArtPiece = async (id, artPiece) => {
         artPiece.year_created,
         artPiece.image_url,
         artPiece.is_favorite,
-        id.id,
+        id
       ]
     );
     return updatedArtPiece;

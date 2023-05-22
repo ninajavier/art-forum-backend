@@ -12,11 +12,7 @@ const checkRequest = (req, res, next) => {
   ) {
     next();
   } else {
-    res
-      .status(400)
-      .json({
-        error: "Body is missing information or body is not present at all",
-      });
+    res.status(400).json({error: "Body is missing information or body is not present at all"});
   }
 };
 

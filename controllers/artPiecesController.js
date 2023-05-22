@@ -49,18 +49,14 @@ artPieces.delete("/:id", checkId, async (req, res) => {
   }
 });
 
-artPieces.put("/:id", async (req, res) => {
-  const { id } = req.params;
-  const { body } = req.body;
-  
-  try {
-    console.log(id, body);
-    const updatedArtPiece = await updateArtPiece(id, body);
-    res.status(200).json(updatedArtPiece);
-  } catch (error) {
-    console.log(error);
-    res.status(202).json({ error: "Could not update" });
-  }
-});
+artPieces.put("/:id",checkRequest, async (req, res) =>{
+    const {id} = req.params;
+    const updatedArtPiece = await updateArtPiece(id, req.body);
+    if(updatedArtPiece.id){
+        res.status(200).json(updatedArtPiece);
+    }else {
+        res.status(404).json("Show not found")
+    }
+    });
 
 module.exports = artPieces;
