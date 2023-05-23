@@ -11,6 +11,5 @@ CREATE TABLE art_pieces (
     medium VARCHAR(255),
     year_created INT,
     image_url TEXT,
-    is_favorite BOOLEAN DEFAULT false,
-    description TEXT
+    is_favorite BOOLEAN DEFAULT false
 );
